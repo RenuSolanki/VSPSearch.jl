@@ -17,6 +17,10 @@ const _vicinity = 50
 #const sub_gs = gs_table(_sub1)
 const lensub1 = length(_sub1)
 
+
+"""
+$(TYPEDSIGNATURES)
+"""
 function download_and_save(accession_nums::Vector{String},path::String)
     if !isdir(path)
         println(path, " doesn't exist")
@@ -33,6 +37,10 @@ function download_and_save(accession_nums::Vector{String},path::String)
       end
 end
 
+
+"""
+$(TYPEDSIGNATURES)
+"""
 function download_and_save(accession_nums::String,path::String)
     if !isfile(accession_nums)
         println(accession_nums, " doesn't exist")
@@ -56,6 +64,10 @@ function download_and_save(accession_nums::String,path::String)
     end
 end
 
+
+"""
+$(TYPEDSIGNATURES)
+"""
 function substr(s::AbstractString, from::Int, to::Int)
     n = length(s)
     to = min(to, n)
@@ -65,6 +77,10 @@ function substr(s::AbstractString, from::Int, to::Int)
     return last(first(s, to), to-from+1)
 end
 
+
+"""
+$(TYPEDSIGNATURES)
+"""
 function find_all_occurences(subs::String, s::String, n::Int, vic::Int=_vicinity) # returns positions of first "ATG"
     m = length(subs)
     lst = Int[]
@@ -99,7 +115,9 @@ function find_all_occurences(subs::String, s::String, n::Int, vic::Int=_vicinity
     return lst
 end
 
-
+"""
+$(TYPEDSIGNATURES)
+"""
 function find_all_occurences(subs::Nothing, s::String, n::Int, vic::Int=_vicinity) # returns positions of first "ATG"
     lst = Int[]
     k = n 
@@ -141,6 +159,9 @@ function find_orf(dna, endpos,n, stops::Vector{String}=[_stop1])
 end
 
 
+"""
+$(TYPEDSIGNATURES)
+"""
 function _search_marked_orfs(path::String, files::Vector{String}, marker_seq::Union{String, Nothing}, 
     stops::Vector{String}=[_stop1], vic::Int=_vicinity, ncbi_gencode_table::Int=4)
 
@@ -199,7 +220,9 @@ function _search_marked_orfs(path::String, files::Vector{String}, marker_seq::Un
 end
 
 
-
+"""
+$(TYPEDSIGNATURES)
+"""
 function search_marked_orfs(path::String; marker_seq::Union{String, Nothing}=nothing, 
     stops::Vector{String}=[_stop1], vic::Int=_vicinity, ncbi_gencode_table::Int=4,
     outfile::String=joinpath(@get_scratch!("search_data"), "outfile.fasta"))
@@ -267,13 +290,19 @@ function search_marked_orfs(path::String; marker_seq::Union{String, Nothing}=not
 
 end
 
-
+"""
+$(TYPEDSIGNATURES)
+"""
 function run_blastp(;infile::String, outfile::String, database::String, other_arguments::Vector{String}=String[])
     command = `blastp -query $infile -db $database -out $outfile $other_arguments` #can also set -culling_limit 2 https://www.ncbi.nlm.nih.gov/books/NBK279684/
     run(command)
     return
 end
 
+
+"""
+$(TYPEDSIGNATURES)
+"""
 function run_cdhit(;infile::String, outfile::String, other_arguments::Vector{String}=String[])
     command = `cd-hit -i $infile -o $outfile $other_arguments`
     run(command)
@@ -281,6 +310,10 @@ function run_cdhit(;infile::String, outfile::String, other_arguments::Vector{Str
 end
 
 
+
+"""
+$(TYPEDSIGNATURES)
+"""
 function vsp_az(;accession_nums::Union{String, Vector{String}},
     download_folder::String,
     blastpdb::String,

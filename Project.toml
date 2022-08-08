@@ -5,6 +5,7 @@ version = "0.1.0"
 
 [deps]
 BioSequences = "7e6ae17a-c86d-528c-b3b9-7f778a29fe59"
+DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
 FASTX = "c2308a5c-f048-11e8-3e8a-31650f418d12"
 Scratch = "6c6a2e73-6563-6170-7368-637461726353"
 
