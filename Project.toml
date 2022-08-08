@@ -3,6 +3,11 @@ uuid = "43e59e95-0a38-4d46-9272-07b1ed235a5d"
 authors = ["RenuSolanki <renusolanki2014@gmail.com> and contributors"]
 version = "0.1.0"
 
+[deps]
+BioSequences = "7e6ae17a-c86d-528c-b3b9-7f778a29fe59"
+FASTX = "c2308a5c-f048-11e8-3e8a-31650f418d12"
+Scratch = "6c6a2e73-6563-6170-7368-637461726353"
+
 [compat]
 julia = "1"
 

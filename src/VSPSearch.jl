@@ -1,5 +1,17 @@
 module VSPSearch
 
-# Write your package code here.
+using FASTX
+using BioSequences
+using Scratch
+using Base.Threads
+
+
+export vsp_az, download_and_save, search_marked_orfs,
+        run_blastp, run_cdhit
+
+
+include("searchvsp.jl")
+
+
 
 end
