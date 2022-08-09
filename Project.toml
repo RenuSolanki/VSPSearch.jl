@@ -11,6 +11,13 @@ Scratch = "6c6a2e73-6563-6170-7368-637461726353"
 
 [compat]
 julia = "1"
+BioSequences = "3.1"
+FASTX = "1.3"
+Scratch = "1"
+DocStringExtensions = "0.9"
+
+
+
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
